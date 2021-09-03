@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<body>     
+
+		<input type="number" placeholder="enter value" id="mathsvalue" />
+		<button type="submit" onclick="setit()">Click it</button>
+		<div id="displaymyData"></div>
+		
+		<script>
+
+			function setit(){
+				var mynumber = document.getElementById("mathsvalue").value;
+				for(var number = 1; number <= 10; number++) {
+
+					// multiply i with number
+					var result = mynumber * number;
+
+					// display the result
+					document.getElementById("displaymyData").innerHTML += "<h6>"+ mynumber+" * "+number+" = "+result+ "<br/>"+" </h6>";
+				}     
+			}
+		</script>  
+		
+		
+		
+	</body>
+</html>
+
+
+

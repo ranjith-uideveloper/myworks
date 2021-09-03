@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table{
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        th, td{
+            padding: 10px 20px;
+            border: 1px solid #000;
+        }
+    </style>
+
+</head>
+	<body>
+		
+		<div id="mytable_data">
+			
+		</div>
+		
+		<script>
+			// constructor function
+			function Person () {
+				this.name = 'John',
+				this.age = 23,
+
+				 this.greet = function () {
+					console.log('hello');
+				}
+			}
+
+			// create objects
+			const person1 = new Person();
+			const person2 = new Person();
+
+			// access properties
+			console.log(person1.name);  // John
+			console.log(person2.name);  // John
+
+			
+			
+			var mytable = document.createElement('table');
+			var mythead = document.createElement('thead');
+			var mytbody = document.createElement('tbody');
+			var mytr = document.createElement('tr');
+			var mytd = document.createElement('td');
+			var myth = document.createElement('th');
+			
+			// Adding the entire table to the body tag
+			document.getElementById('mytable_data').appendChild(mytable);
+			
+			mytable.appendChild(mythead);
+			mytable.appendChild(mytbody);
+			
+			var row1 = document.createElement('tr');
+			var row1_data = document.createElement('th');
+			row1_data.innerHTML = "No";
+			var row1_data2 = document.createElement('th');
+			row1_data2.innerHTML = "First Name";
+			var row1_data3 = document.createElement('th');
+			row1_data3.innerHTML = "Last Name";
+			
+			row1.appendChild(row1_data);
+			row1.appendChild(row1_data);
+			row1.appendChild(row1_data2);
+			row1.appendChild(row1_data3);
+			mytbody.appendChild(row1);
+			
+			var row_2 = document.createElement('tr');
+			var row_2_data_1 = document.createElement('td');
+			row_2_data_1.innerHTML = "1.";
+			var row_2_data_2 = document.createElement('td');
+			row_2_data_2.innerHTML = "James";
+			var row_2_data_3 = document.createElement('td');
+			row_2_data_3.innerHTML = "Clerk";
+
+			row_2.appendChild(row_2_data_1);
+			row_2.appendChild(row_2_data_2);
+			row_2.appendChild(row_2_data_3);
+			mytbody.appendChild(row_2);
+			
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>jQuery Data Table</title>
+	   <link href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel="stylesheet" />
+	</head>
+	<body>
+		
+		<div class="container">
+			<table id="example" class="display" cellspacing="0" width="100%">
+			</table>
+		</div>
+		
+		
+		<style>
+			body {
+			  margin: 2rem;
+			}
+			/*
+			th {
+			  background-color: white;
+			}
+			tr:nth-child(odd) {
+			  background-color: grey;
+			}
+			th, td {
+			  padding: 0.5rem;
+			}
+			td:hover {
+			  background-color: lightsalmon;
+			}
+			*/
+			.paginate_button {
+			  border-radius: 0 !important;
+			}
+
+		</style>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" ></script>
+		<script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js" ></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
+		<script>
+			var data = [{
+			  "first_name": "Airi",
+			  "last_name": "Satou",
+			  "position": "Accountant",
+			  "office": "Tokyo",
+			  "start_date": "28th Nov 08",
+			  "salary": "$162,700"
+			},
+			{
+			  "first_name": "Angelica",
+			  "last_name": "Ramos",
+			  "position": "Chief Executive Officer (CEO)",
+			  "office": "London",
+			  "start_date": "9th Oct 09",
+			  "salary": "$1,200,000"
+			},
+			{
+			  "first_name": "Angelica",
+			  "last_name": "Ramos",
+			  "position": "Chief Executive Officer (CEO)",
+			  "office": "London",
+			  "start_date": "9th Oct 09",
+			  "salary": "$1,200,000"
+			}];
+			
+			$(document).ready(function() {
+				var cols = [];
+  
+			  var exampleRecord = data[0];
+			  
+			  //get keys in object. This will only work if your statement remains true that all objects have identical keys
+			  var keys = Object.keys(exampleRecord);
+			  
+			  //for each key, add a column definition
+			  keys.forEach(function(k) {
+				cols.push({
+				  title: k,
+				  data: k
+				  //optionally do some type detection here for render function
+				});
+			  });
+			  
+			  //initialize DataTables
+			  var table = $('#example').DataTable({
+				columns: cols,
+				searching: false, 
+				lengthMenu: [1, 2, 3]
+			  });
+			  
+			  //add data and draw
+			  table.rows.add(data).draw();
+			} );
+		</script>
+		
+	</body>
+</html>

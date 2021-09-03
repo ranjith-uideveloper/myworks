@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	
+	<body>
+      
+	  <h2 id="battery"></h2>
+	</body>
+    <!-- <script>
+        
+		var age = 19;
+		if( age > 18 ) {
+		   document.getElementById("license").innerHTML = "Qualified for Driving";
+		}else if( age < 18 ) {
+		   document.getElementById("license").innerHTML = "You're not Qualified";
+		}else if( age < 18 ) {
+		   document.getElementById("license").innerHTML = "You're not Qualified";
+		}
+	</script> -->
+	
+	<input type="text" id="test" placeholder="Enter age here" />
+	
+	<button type="button" onclick="myfunction()">Click Me</button>
+	
+	
+	
+	<script>
+		function myfunction(){
+			var age = document.getElementById('test').value;
+				if(age >= 18) {
+					if( age < 20 ){
+						document.getElementById("battery").style = "color:red";
+						document.getElementById("battery").innerHTML = "You're Eligible for Battery Vehicles";
+					}else if( age > 20 && age < 24){
+						document.getElementById("battery").innerHTML = "You're Eligible For Gear Vehicles";
+					}else if( age > 24 && age < 30){
+						document.getElementById("battery").innerHTML = "You're Eligible For Heavy Vehicles";
+					}else{
+						document.getElementById("battery").innerHTML = "You're Eligible For Other Vehicles";
+					}
+				}else{
+					document.getElementById("battery").innerHTML = "You're Not Eligible";
+				}
+		}
+	</script>
+	
+	
+</html>

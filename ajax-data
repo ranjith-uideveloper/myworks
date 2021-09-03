@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Ajax Data Table</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+	
+		<style>
+		
+			table{
+				margin-top:10px;
+				font-family:segoe ui;
+				display:block;
+			}
+		
+			table, td{
+				border:1px solid #ddd;
+			}
+			
+			td{
+				padding:15px;
+			}
+			
+			button{
+				background: #288df5;
+				border: 0;
+				padding: 10px 20px;
+				font-size: 15px;
+				border-radius: 25px;
+				color: #fff;
+				font-weight: bold;
+				text-transform: uppercase;
+			}
+			
+		</style>
+		
+		<button id="action-button">Click me to load info!</button>
+		<div id="info"></div>
+		
+		<script>
+			$(document).ready(function () {
+				$("#action-button").click(function(){
+					$.ajax({
+						url: 'https://dropship.unitedropship.com/api/v1/dummydata',
+						dataType: 'json',
+						success: function(data) {
+							document.getElementById("info").innerHTML = "<table id='main-content'></table>";
+							var row = "";
+							for (var i=0; i<data.length; i++) {
+								row += ('<tr><td>' + data[i].id+ '</td><td>' + data[i].name + '</td><td>' + data[i].category + '</td><td>' + data[i].remaining_stock + '</td></tr>');
+							}
+							$('#main-content').html(row);
+						},
+						error: function(jqXHR, textStatus, errorThrown){
+							alert('Error: ' + textStatus + ' - ' + errorThrown);
+						}
+					})
+				})
+			});			   
+		</script>
+		
+	</body>
+</html>
